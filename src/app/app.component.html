@@ -1,3 +1,24 @@
-<h1>
-  {{title}}
-</h1>
+<div #modalContainer></div>
+<span *ngIf="currentComponent" (click)="closeModal()" class="modal-close fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+</span>
+
+<div class="parallax-container">
+  <div class="parallax" materialize="parallax">
+    <img src="assets/parallax1.jpg" >
+  </div>
+</div>
+<div class="section white">
+  <div class="row container">
+    <h2 class="header">Blog Posts</h2>
+    <p class="grey-text text-darken-3 lighten-3">
+      Check out one of my blog posts below!
+    </p>
+  </div>
+</div>
+<div class="parallax-container hover-container" (click)="open('blog1.md')">
+  <div class="parallax" materialize="parallax">
+    <img src="assets/parallax2.jpg">
+  </div>
+</div>

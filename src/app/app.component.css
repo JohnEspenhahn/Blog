@@ -1,0 +1,32 @@
+.modal-close {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    cursor: pointer;
+}
+.hover-container {
+    opacity: 1;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+    cursor: pointer;
+}
+.hover-container:hover::after {
+    padding-left: 50%;
+    margin-left: -0.5em;
+    margin-top: 200px;
+    opacity: 0.4;
+
+    /* fa-arrows-alt */
+    content: "\f0b2";
+
+    /* .fa */
+    display: inline-block;
+    font: normal normal normal 5em FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.hover-container:hover {
+    opacity: 0.9;
+}
