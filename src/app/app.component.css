@@ -1,3 +1,25 @@
+.title {
+    text-align: center;
+    margin-top: 125px;
+}
+h1.title {
+    font-size: 6rem;
+    font-weight: 500;
+}
+h2.title {
+    /* WebKit (Safari/Chrome) Only */
+    -webkit-text-stroke: 1px #424242;
+
+    text-shadow:
+    1px 1px 0 #424242,
+    /* Simulated effect for Firefox and Opera
+       and nice enhancement for WebKit */
+    -1px -1px 0 #424242,  
+    1px -1px 0 #424242,
+    -1px  1px 0 #424242,
+    1px  1px 0 #424242;
+}
+
 .modal-close {
     position: fixed;
     top: 10px;
@@ -11,11 +33,12 @@
     -webkit-transition: opacity 0.5s;
     cursor: pointer;
 }
-.hover-container:hover::after {
+.hover-container:hover::before {
     padding-left: 50%;
     margin-left: -0.5em;
     margin-top: 200px;
     opacity: 0.4;
+    position: absolute;
 
     /* fa-arrows-alt */
     content: "\f0b2";
