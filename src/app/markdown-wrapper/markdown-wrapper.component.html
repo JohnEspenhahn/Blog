@@ -1,5 +1,12 @@
 <div id="markdown-modal" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+  <i class="fa fa-times close" aria-hidden="true" (click)="close()"></i>
+
   <div class="modal-content">
-    <markdown [data]="data"></markdown>
+    <div class="row container">
+      <markdown [data]="data"></markdown>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action waves-effect waves-green btn-flat" (click)="close()">Close</a>
   </div>
 </div>

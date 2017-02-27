@@ -1,5 +1,7 @@
-import { Component, ViewChild, ViewContainerRef, ReflectiveInjector, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, ReflectiveInjector, ComponentFactoryResolver } from '@angular/core';
 import { MarkdownWrapperComponent } from './markdown-wrapper/markdown-wrapper.component';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,27 +9,31 @@ import { MarkdownWrapperComponent } from './markdown-wrapper/markdown-wrapper.co
   styleUrls: ['./app.component.css'],
   entryComponents: [MarkdownWrapperComponent]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   currentComponent = null;
   @ViewChild('modalContainer', { read: ViewContainerRef }) modalContainer: ViewContainerRef;
 
-  constructor(private resolver: ComponentFactoryResolver) { }
+  componentSubscription = null;
+  posts: Observable<any[]>;
+
+  constructor(private http: Http, private resolver: ComponentFactoryResolver) { }
+
+  ngOnInit() {
+    this.posts = this.http.get('assets/markdown/db.json').map((value: Response) => {
+      return value.json().posts;
+    });
+  }
 
   open(file: string) {
-    // Inputs need to be in the following format to be resolved properly
-    let data = { inputs: { file: file }, component: MarkdownWrapperComponent };
-    let inputProviders = Object.keys(data.inputs).map((inputName) => {return {provide: inputName, useValue: data.inputs[inputName]};});
-    let resolvedInputs = ReflectiveInjector.resolve(inputProviders);
-    
-    // We create an injector out of the data we want to pass down and this components injector
+    let resolvedInputs = ReflectiveInjector.resolve([]);
     let injector = ReflectiveInjector.fromResolvedProviders(resolvedInputs, this.modalContainer.parentInjector);
-    
-    // We create a factory out of the component we want to create
-    let factory = this.resolver.resolveComponentFactory(data.component);
-    
-    // We create the component using the factory and the injector
+    let factory = this.resolver.resolveComponentFactory(MarkdownWrapperComponent);
+
     let component = factory.create(injector);
     component.instance.file = file;
+    this.componentSubscription = component.instance.onClose.subscribe(() => {
+      this.closeModal();
+    });
     
     // We insert the component into the dom container
     this.modalContainer.insert(component.hostView);
@@ -42,6 +48,11 @@ export class AppComponent {
 
   closeModal() {
     this.modalContainer.clear();
+
+    if (this.componentSubscription) {
+      this.componentSubscription.unsubscribe();
+    }
+
     if (this.currentComponent) {
       this.currentComponent.instance.close();
       this.currentComponent.destroy();

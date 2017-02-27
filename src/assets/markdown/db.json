@@ -1,0 +1,11 @@
+{
+  
+  "posts": [
+    {
+      "title": "First Blog",
+      "file": "blog1.md",
+      "image": "parallax2.jpg"
+    }
+  ]
+
+}

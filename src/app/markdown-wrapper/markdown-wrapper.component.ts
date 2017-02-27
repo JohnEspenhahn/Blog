@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Input, EventEmitter } from '@angular/core';
+import { Component, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { MarkdownService } from '../markdown.service';
 import { MaterializeAction } from 'angular2-materialize';
 
@@ -11,9 +11,13 @@ export class MarkdownWrapperComponent implements AfterViewInit {
 
   @Input()
   file: string;
-  data: string = "";
 
+  data = "";
+  open = true;
   modalActions = new EventEmitter<string|MaterializeAction>();
+
+  @Output()
+  onClose = new EventEmitter();
 
   constructor(private markdownService: MarkdownService) { }
 
@@ -25,7 +29,11 @@ export class MarkdownWrapperComponent implements AfterViewInit {
   }
 
   public close() {
+    if (!this.open) return;
+
+    this.open = false;
     this.modalActions.emit({action:"modal",params:['close']});
+    this.onClose.emit();
   }
 
 }

@@ -20,13 +20,19 @@ h2.title {
     1px  1px 0 #424242;
 }
 
-.modal-close {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 9999;
-    cursor: pointer;
+.btn-outline-white {
+    font-weight: 500;
+    border: 1px solid #eee;
+    color: #eee!important;
+    background-color: rgba(50,50,50,0.2);
 }
+.btn:first-child {
+    margin-right: 10px;
+}
+.btn:last-child {
+    margin-left: 10px;
+}
+
 .hover-container {
     opacity: 1;
     transition: opacity 0.5s;
