@@ -8,7 +8,7 @@ export class MarkdownService {
   constructor(private http: Http) { }
 
   load(file: string): Observable<String> {
-    return this.http.get(`/assets/markdown/${file}`).map((value: Response) => {
+    return this.http.get(`assets/markdown/${file}`).map((value: Response) => {
       return value.text();
     });
   }
