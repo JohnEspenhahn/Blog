@@ -8,6 +8,8 @@ import { MaterializeAction } from 'angular2-materialize';
   styleUrls: ['./markdown-wrapper.component.css']
 })
 export class MarkdownWrapperComponent implements AfterViewInit {
+  inDuration = 300;
+  outDuration = 200;
 
   @Input()
   file: string;
@@ -33,7 +35,8 @@ export class MarkdownWrapperComponent implements AfterViewInit {
 
     this.open = false;
     this.modalActions.emit({action:"modal",params:['close']});
-    this.onClose.emit();
+
+    setTimeout(() => this.onClose.emit(), this.outDuration);
   }
 
 }
