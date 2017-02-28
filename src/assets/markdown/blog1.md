@@ -1,4 +1,4 @@
-# First Blog
+## First Blog
 
 To whomever it may consern. Congratulations for finding this. You are the first and only human to ever read this. Hopefull that makes you feel *special*.
 

@@ -11,15 +11,14 @@
   </div>
 </div>
 <!-- Title message -->
-<div class="section white">
+<div class="section">
   <div class="row container">
     <markdown path="assets/markdown/title.md"></markdown>
   </div>
 </div>
-
 <!-- Blogs from db.json -->
 <div *ngFor="let post of (posts | async)" class="parallax-container hover-container" (click)="open(post.file)">
-  <h2 class="title grey-text text-lighten-2">{{ post.title }}</h2>
+  <h2 class="title grey-text text-lighten-3">{{ post.title }}</h2>
   <div class="parallax" materialize="parallax">
     <img [src]="'assets/' + post.image">
   </div>

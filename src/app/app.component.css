@@ -6,18 +6,9 @@ h1.title {
     font-size: 6rem;
     font-weight: 500;
 }
-h2.title {
-    /* WebKit (Safari/Chrome) Only */
+h2.title, h4.sub-title {
+    text-stroke: 1px #424242;
     -webkit-text-stroke: 1px #424242;
-
-    text-shadow:
-    1px 1px 0 #424242,
-    /* Simulated effect for Firefox and Opera
-       and nice enhancement for WebKit */
-    -1px -1px 0 #424242,  
-    1px -1px 0 #424242,
-    -1px  1px 0 #424242,
-    1px  1px 0 #424242;
 }
 
 .btn-outline-white {
@@ -35,16 +26,21 @@ h2.title {
 
 .hover-container {
     opacity: 1;
-    transition: opacity 0.5s;
-    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
     cursor: pointer;
 }
-.hover-container:hover::before {
-    padding-left: 50%;
-    margin-left: -0.5em;
-    margin-top: 200px;
-    opacity: 0.4;
+.hover-container::before {
+    text-align: center;
+    width: 100%;
+    margin-top: 220px;
+    opacity: 0;
+    color: black;
+
     position: absolute;
+
+    transform: scale(0.2);
+    transition: all .2s ease-in-out;
 
     /* fa-arrows-alt */
     content: "\f0b2";
@@ -55,6 +51,10 @@ h2.title {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+.hover-container:hover::before {
+    transform: scale(1.1);
+    opacity: 0.3;
 }
 .hover-container:hover {
     opacity: 0.9;

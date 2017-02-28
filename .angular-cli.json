@@ -21,6 +21,7 @@
       "styles": [
         "styles.css",
         "../node_modules/wowjs/css/libs/animate.css",
+        "../node_modules/normalize.css/normalize.css",
         "../node_modules/materialize-css/dist/css/materialize.css"
       ],
       "scripts": [

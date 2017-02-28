@@ -29,7 +29,7 @@
     "jquery": "^2.2.4",
     "material-prism-theme": "^0.1.0",
     "materialize-css": "^0.98.0",
-    "mdbootstrap": "^4.3.0",
+    "normalize.css": "^5.0.0",
     "rxjs": "^5.1.0",
     "snapsvg": "^0.5.1",
     "wowjs": "^1.1.3",
