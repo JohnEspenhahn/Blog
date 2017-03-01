@@ -1,0 +1,65 @@
+.title {
+    text-align: center;
+    margin-top: 100px;
+}
+h1.title {
+    font-size: 6rem;
+    font-weight: 500;
+}
+h2.title, h4.sub-title {
+    text-stroke: 1px #424242;
+    -webkit-text-stroke: 1px #424242;
+}
+
+.btn-outline-white {
+    font-weight: 500;
+    border: 1px solid #eee;
+    color: #eee!important;
+    background-color: rgba(50,50,50,0.2);
+}
+.btn:first-child {
+    margin-right: 10px;
+}
+.btn:last-child {
+    margin-left: 10px;
+}
+
+.hover-container {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+.hover-container::before {
+    text-align: center;
+    width: 100%;
+    margin-top: 170px;
+    opacity: 0;
+    color: black;
+
+    position: absolute;
+
+    transform: scale(0.2);
+    transition: all .2s ease-in-out;
+
+    /* fa-arrows-alt */
+    content: "\f065";
+
+    /* .fa */
+    display: inline-block;
+    font: normal normal normal 5em FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.hover-container:hover::before {
+    transform: scale(1.1);
+    opacity: 0.3;
+}
+.hover-container:hover {
+    opacity: 0.9;
+}
+
+.parallax-container.parallax-container-small {
+    height: 300px;
+}

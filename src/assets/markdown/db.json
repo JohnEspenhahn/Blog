@@ -3,7 +3,7 @@
   "posts": [
     {
       "title": "First Blog",
-      "file": "blog1.md",
+      "file": "blog1",
       "image": "parallax2.jpg"
     }
   ]

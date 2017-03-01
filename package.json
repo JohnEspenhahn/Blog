@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^2.4.0",
     "@angular/platform-browser-dynamic": "^2.4.0",
     "@angular/router": "^3.4.0",
+    "@types/jquery": "^2.0.40",
     "angular2-markdown": "^1.4.0",
     "angular2-materialize": "^6.7.1",
     "bootstrap": "^3.3.7",

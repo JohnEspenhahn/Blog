@@ -11,3 +11,10 @@
   cursor: pointer;
   position: absolute;
 }
+
+.forceOpen {
+  z-index: 1003;
+  display: block;
+  opacity: 1;
+  bottom: 0px;
+}

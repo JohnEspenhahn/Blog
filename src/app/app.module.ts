@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -10,14 +11,23 @@ import { AppComponent } from './app.component';
 
 import { MarkdownService } from './markdown.service';
 import { MarkdownWrapperComponent } from './markdown-wrapper/markdown-wrapper.component';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [
+  { path: 'posts/:name', component: HomeComponent },
+  { path: '', redirectTo: '/posts/home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'posts/home' }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MarkdownWrapperComponent    
+    MarkdownWrapperComponent,
+    HomeComponent    
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(routes),
     FormsModule,
     HttpModule,
 
