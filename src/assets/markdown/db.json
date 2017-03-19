@@ -4,7 +4,12 @@
     {
       "title": "First Blog",
       "file": "blog1",
-      "image": "parallax2.jpg"
+      "image": "blog1.jpg"
+    },
+    {
+      "title": "Remote Procedure Calls",
+      "file": "RPC",
+      "image": "rpc.jpg"
     }
   ]
 
