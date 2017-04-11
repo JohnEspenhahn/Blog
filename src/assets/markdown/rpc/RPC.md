@@ -23,9 +23,16 @@ You can see the final product **[here](https://github.com/JohnEspenhahn/Typescri
 ### Step 0.3 - Communicating Client / Server
 First we need a client that can communicate with a server. 
 
-If you know anything about Javascript, your first instinct is probably to have an HTML endpoint on the server, and to make XMLHttpRequest calls from the client. Unfortunately this would make it near impossible for our server to execute remote calls. Instead we will use bi-directionally WebSockets, and specifically socket.io.
+If you know anything about Javascript, your first instinct is probably to have an HTML endpoint on the server, and to make XMLHttpRequest calls from the client. Unfortunately this would make it near impossible for our server to initiate remote calls. Instead we will use bi-directionally WebSockets (under the assumption we are using a modern browser that supports WebSockets).
 
-##### **tldr;** We will use socket.io to communicate between client and server because of its bidirectional nature
+WebSockets provide a socket implementation that at it's core sends byte blobs. This is the base layer of our network communication. On top of WebSockets we will use Socket.IO, which provides an object stream interface. This abstraction above a simple byte-based socket will make implementing RPC simpler.
+
+**Communication Stack**<br/>
+RMI (remote procedure calls)<br/>
+Socket.IO (object communication)<br/>
+WebSocket (socket)
+
+##### **tldr;** We will use socket.io to communicate between client and server because of its bidirectional nature and its object stream interface
 
 ### Problem 1.1 - Specify a Remote Object
 In this design, we will have an "eternal" server with arbitrary clients that always start by connecting to this server. 

@@ -8,7 +8,7 @@
     },
     {
       "title": "Remote Procedure Calls",
-      "file": "RPC",
+      "file": "rpc/RPC",
       "image": "rpc.jpg"
     }
   ]

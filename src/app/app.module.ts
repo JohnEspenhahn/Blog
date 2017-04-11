@@ -9,7 +9,6 @@ import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
 
-import { MarkdownService } from './markdown.service';
 import { MarkdownWrapperComponent } from './markdown-wrapper/markdown-wrapper.component';
 import { HomeComponent } from './home/home.component';
 
@@ -23,8 +22,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     MarkdownWrapperComponent,
-    HomeComponent    
-  ],
+    HomeComponent
+  ],  
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes, { useHash: true }),
@@ -34,7 +33,7 @@ const routes: Routes = [
     MaterializeModule,
     MarkdownModule.forRoot()
   ],
-  providers: [ MarkdownService ],
-  bootstrap: [AppComponent]
+  providers: [ ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

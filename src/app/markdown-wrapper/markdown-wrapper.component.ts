@@ -1,9 +1,8 @@
 import { Component, ViewChild, ElementRef, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { MarkdownService } from '../markdown.service';
 import { MaterializeAction } from 'angular2-materialize';
 
-declare var $: any;
+var window: any;
 
 @Component({
   selector: 'app-markdown-wrapper',
@@ -17,20 +16,15 @@ export class MarkdownWrapperComponent implements AfterViewInit {
   @Input()
   file: string;
 
-  data = "";
   isOpen: boolean;
   forceOpen: boolean;
   modalActions = new EventEmitter<string|MaterializeAction>();
 
   @ViewChild('markdown_modal') modal: ElementRef;
 
-  constructor(private router: Router, private markdownService: MarkdownService) { }
+  constructor(private router: Router) { }
 
   ngAfterViewInit() {
-    this.markdownService.load(this.file + '.md').subscribe((data: string) => {
-      this.data = data;
-    });
-    // $(this.modal.nativeElement).modal('open');
     this.open();
   }
 
