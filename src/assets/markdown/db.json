@@ -2,9 +2,15 @@
   
   "posts": [
     {
+      "file": "title"
+    },
+    {
       "title": "First Blog",
       "file": "blog1",
       "image": "blog1.jpg"
+    },
+    {
+        "file": "design_subtitle"
     },
     {
       "title": "Remote Procedure Calls",

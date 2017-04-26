@@ -10,16 +10,17 @@
     <img src="assets/parallax1.jpg" >
   </div>
 </div>
-<!-- Title message -->
-<div class="section">
-  <div class="row container">
-    <markdown path="assets/markdown/title.md"></markdown>
-  </div>
-</div>
 <!-- Blogs from db.json -->
-<div *ngFor="let post of (posts | async)" class="parallax-container parallax-container-small hover-container" [routerLink]="['/posts', post.file]">
-  <h2 class="title grey-text text-lighten-3">{{ post.title }}</h2>
-  <div class="parallax" materialize="parallax">
-    <img [src]="'assets/' + post.image">
+<div *ngFor="let post of (posts | async)">
+  <div *ngIf="post.image" class="parallax-container parallax-container-small hover-container" [routerLink]="['/posts', post.file]">
+    <h2 class="title grey-text text-lighten-3">{{ post.title }}</h2>
+    <div class="parallax" materialize="parallax">
+      <img [src]="'assets/' + post.image">
+    </div>
+  </div>
+  <div *ngIf="!post.image" class="section">
+    <div class="row container">
+      <markdown [path]="'assets/markdown/' + post.file + '.md'"></markdown>
+    </div>
   </div>
 </div>

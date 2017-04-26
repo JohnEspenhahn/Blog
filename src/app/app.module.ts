@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { MarkdownWrapperComponent } from './markdown-wrapper/markdown-wrapper.component';
 import { HomeComponent } from './home/home.component';
 
+import { ModaltrackerService } from "./modaltracker.service";
+
 const routes: Routes = [
   { path: 'posts/:name', component: HomeComponent },
   { path: '', redirectTo: '/posts/home', pathMatch: 'full' },
@@ -33,7 +35,9 @@ const routes: Routes = [
     MaterializeModule,
     MarkdownModule.forRoot()
   ],
-  providers: [ ],
+  providers: [
+    ModaltrackerService
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

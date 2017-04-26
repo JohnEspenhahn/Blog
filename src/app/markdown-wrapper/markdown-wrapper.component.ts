@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { MaterializeAction } from 'angular2-materialize';
+import { ModaltrackerService } from "../modaltracker.service";
 
 var window: any;
 
@@ -22,7 +23,7 @@ export class MarkdownWrapperComponent implements AfterViewInit {
 
   @ViewChild('markdown_modal') modal: ElementRef;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private tracker: ModaltrackerService) { }
 
   ngAfterViewInit() {
     this.open();
@@ -31,6 +32,7 @@ export class MarkdownWrapperComponent implements AfterViewInit {
   public open(force: boolean = false) {
     this.isOpen = true;
     
+    this.tracker.setOpen();
     if (force) this.forceOpen = true;
     else this.modalActions.emit({action:"modal",params:['open']});
   }
@@ -39,6 +41,7 @@ export class MarkdownWrapperComponent implements AfterViewInit {
     if (!this.isOpen) return;
 
     this.isOpen = false;
+    this.tracker.setClosed();
     this.modalActions.emit({action:"modal",params:['close']});
 
     setTimeout(() => {
